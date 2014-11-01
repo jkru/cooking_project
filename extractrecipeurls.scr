@@ -1,0 +1,1 @@
+ cat fn.txt  |  grep "recipes/alton-brown" | sort| uniq | sed 's/"/ /g' | awk '{print("www.foodnetwork.com"$3)}' >> recipe_html.lst
