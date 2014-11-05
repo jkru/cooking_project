@@ -1,5 +1,6 @@
 import requests
 import time
+import random
 
 def list_of_recipes():
     recipes = []
@@ -19,14 +20,17 @@ def make_recipe_names(recipes):
 
 def get_recipe_page(recipe_names,recipes):
 #    for i, recipe_name in enumerate(recipe_names):
-    for i in range(8,108):
+    for i in range(518,763):
         open_file =  open("ab/"+recipe_names[i], 'w')
-        current_recipe =  recipes[i].decode("latin-1")
-
+        current_recipe =  recipes[i].decode("latin-1","ignore")
         r = requests.get(current_recipe)
-        open_file.write(r.text)
+        try:
+            open_file.write(r.text)
+        except:
+            r = r.text.encode("latin-1")
+            open_file.write(r)
         open_file.close()
-        time.sleep(30)
+        time.sleep(random.randint(20,60))
 
 def main():
 

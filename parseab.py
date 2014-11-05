@@ -58,12 +58,8 @@ for afile in list_files:
         #need to strip out things
         if "spoon" in single_ingr:
             if single_ingr[:5] == "table":
-                print single_ingr, single_ingr[11:]
-                raw_input()
-            list_single_ingr = single_ingr.split()
-            print list_single_ingr
-            raw_input()
-
+                list_single_ingr = single_ingr.split()
+ 
         bag_of_words.append(single_ingr)
         allwords.append(single_ingr)
     
